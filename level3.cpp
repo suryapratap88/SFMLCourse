@@ -1,6 +1,6 @@
 #include<SFML/Graphics.hpp>
 int main(){
-    sf::RenderWindow window(sf::VideoMode({800,600}),"Level-3=WASD keys");
+    sf::RenderWindow window(sf::VideoMode({800,600}),"Level-3=Movement");
     sf::Texture playerTexture;
     if(!playerTexture.loadFromFile("player.png")){
         return -1;

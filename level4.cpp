@@ -1,6 +1,6 @@
 #include<SFML/Graphics.hpp>
 int main(){
-    sf::RenderWindow window(sf::VideoMode({800,600}),"Level-4=dt+speed");
+    sf::RenderWindow window(sf::VideoMode({800,600}),"Level-4=delta time");
     sf::Texture playerTexture;
     if(!playerTexture.loadFromFile("player.png")){
         return -1;
