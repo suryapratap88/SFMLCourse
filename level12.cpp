@@ -54,21 +54,18 @@ int main(){
         }
         }
         if(placeBuilding){
-            previewBuilding.setPosition(worldMouse);
-            if(previewBuilding.getGlobalBounds().findIntersection(enemy.getGlobalBounds()) or previewBuilding.getGlobalBounds().findIntersection(player.getGlobalBounds())){
+        previewBuilding.setPosition(worldMouse);
+        canPlace = true;
+        sf::FloatRect previewBounds = previewBuilding.getGlobalBounds();
+            if(previewBounds.findIntersection(enemy.getGlobalBounds()) or previewBounds.findIntersection(player.getGlobalBounds())){
                 canPlace = false;
             }
-            else{
-                canPlace = true;
-            }
             for(const auto& building : buildings){
-                if(previewBuilding.getGlobalBounds().findIntersection(building.getGlobalBounds())){
+                if(previewBounds.findIntersection(building.getGlobalBounds())){
                     canPlace = false;
                     break;
                 }
             }
-        }
-        sf::FloatRect previewBounds = previewBuilding.getGlobalBounds();
             if(previewBounds.position.x<0){
                 canPlace = false;
             }
@@ -81,6 +78,7 @@ int main(){
             if(previewBounds.position.y+previewBounds.size.y>window.getSize().y){
                 canPlace = false;
             }
+        }
             if(canPlace){
             previewBuilding.setFillColor(sf::Color(0,255,0,155));
         }
